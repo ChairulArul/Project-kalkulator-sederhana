@@ -1,17 +1,15 @@
 const display = document.querySelector('.display');
-const buttons = document.querySelectorAll('button'); // Memperbaiki querySelectorAll
+const buttons = document.querySelectorAll('button'); 
 const specialChars = ["%", "*", "/", "-", "+", "="];
 let output = "";
 
 const calculate = (btnValue) => {
-    // Fokus input hanya jika dibutuhkan
     if (btnValue !== "=") {
         display.focus();
     }
 
     if (btnValue === "=" && output !== "") {
         try {
-            // Menggunakan try-catch untuk menangani error pada eval
             output = eval(output.replace("%", "/100"));
         } catch (error) {
             output = "Error";
